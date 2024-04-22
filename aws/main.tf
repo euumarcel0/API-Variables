@@ -127,7 +127,7 @@ resource "aws_instance" "windows" {
  associate_public_ip_address = true
 
  tags = {
-    Name = var.nome_grupo_seguranca_windows_aws
+    Name = var.nome_maquina_virtual_windows_aws
  }
 }
 
