@@ -366,7 +366,7 @@ def criar_subrede_privada_aws():
     dados = request.json
     nome_subrede_privada = dados['nome']
     endereco_subrede_privada = dados['endereco']
-    endereco_subpri = "[" + "\"" + endereco_subrede_privada + "\"" + "]" 
+    endereco_subpri = "\"" + endereco_subrede_privada + "\""
     
     terraform_dir = './aws/'
     
@@ -385,7 +385,7 @@ def criar_subrede_publica_aws():
     dados = request.json
     nome_subrede_publica = dados['nome']
     endereco_subrede_publica = dados['endereco']
-    endereco_subpub = "[" + "\"" + endereco_subrede_publica + "\"" + "]" 
+    endereco_subpub = "\"" + endereco_subrede_publica + "\""
     
     terraform_dir = './aws/'
     
