@@ -466,14 +466,10 @@ def criar_grupo_seguranca_windows_aws():
 def criar_instancia_ec2_linux_aws():
     dados = request.json
     nome_maquina_virtual_windows = dados['nome']
-    nome_usuario_windows = dados ['usuario']
-    senha_usuario_winodws = dados['senha']
     
     terraform_dir = './aws/'
     
     atualizar_nomes_tf({"nome": "nome_maquina_virtual_windows_aws", "valor": nome_maquina_virtual_windows}, terraform_dir)
-    atualizar_nomes_tf({"nome": "nome_usuario_windows_aws", "valor": nome_usuario_windows}, terraform_dir)
-    atualizar_nomes_tf({"nome": "senha_usuario_windows_aws", "valor": senha_usuario_winodws}, terraform_dir)
     
     try:
         subprocess.run(['terraform', 'apply', '-auto-approve', '-target=aws_instance.windows'], cwd=terraform_dir, check=True)
@@ -486,15 +482,11 @@ def criar_instancia_ec2_linux_aws():
 def criar_instancia_ec2_windows_aws():
     dados = request.json
     nome_maquina_virtual_linux = dados['nome']
-    nome_usuario_linux = dados ['usuario']
-    senha_usuario_linux = dados['senha']
     
     terraform_dir = './aws/'
     
     atualizar_nomes_tf({"nome": "nome_maquina_virtual_linux_aws", "valor": nome_maquina_virtual_linux}, terraform_dir)
-    atualizar_nomes_tf({"nome": "nome_usuario_linux_aws", "valor": nome_usuario_linux}, terraform_dir)
-    atualizar_nomes_tf({"nome": "senha_usuario_linux_aws", "valor": senha_usuario_linux}, terraform_dir)
-    
+
     try:
         subprocess.run(['terraform', 'apply', '-auto-approve', '-target=aws_instance.linux'], cwd=terraform_dir, check=True)
         return jsonify({"message": "Instância EC2 Windows criada com sucesso!"}), 200
