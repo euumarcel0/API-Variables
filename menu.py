@@ -159,18 +159,14 @@
 # Endpoint: /aws/Máquina Virtual Windows
 # Corpo da Requisição (JSON):
 {
-    "nome": "nome_maquina_virtual_windows",
-    "usuario": "nome_usuario_windows",
-    "senha": "senha_usuario_windows"
+    "nome": "nome_maquina_virtual_windows"
 }
 # Criar Instância EC2 Windows na AWS:
 # Método: POST
 # Endpoint: /aws/Máquina Virtual Linux
 # Corpo da Requisição (JSON):
 {
-    "nome": "nome_maquina_virtual_linux",
-    "usuario": "nome_usuario_linux",
-    "senha": "senha_usuario_linux"
+    "nome": "nome_maquina_virtual_linux"
 }
 # Criar Balanceador de Carga na AWS:
 # Método: POST
