@@ -347,7 +347,7 @@ def criar_vpc():
     dados = request.json
     nome_vnet = dados['nome']
     endereco_usuario = dados['endereco']
-    endereco_vnet = "[" + "\"" + endereco_usuario + "\"" + "]"   
+    endereco_vnet = "\"" + endereco_usuario + "\""   
     
     terraform_dir = './aws/'
     
