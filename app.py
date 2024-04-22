@@ -463,7 +463,7 @@ def criar_grupo_seguranca_windows_aws():
 
 # Função para criar instância EC2 Linux na AWS
 @app.route('/aws/Máquina Virtual Windows', methods=['POST'])
-def criar_instancia_ec2_linux_aws():
+def criar_instancia_ec2_windows_aws():
     dados = request.json
     nome_maquina_virtual_windows = dados['nome']
     
@@ -473,13 +473,13 @@ def criar_instancia_ec2_linux_aws():
     
     try:
         subprocess.run(['terraform', 'apply', '-auto-approve', '-target=aws_instance.windows'], cwd=terraform_dir, check=True)
-        return jsonify({"message": "Instância EC2 Linux criada com sucesso!"}), 200
+        return jsonify({"message": "Instância EC2 Windows criada com sucesso!"}), 200
     except subprocess.CalledProcessError as e:
-        return jsonify({"error": f"Erro ao criar Instância EC2 Linux: {e}"}), 500
+        return jsonify({"error": f"Erro ao criar Instância EC2 Windows: {e}"}), 500
 
 # Função para criar instância EC2 Windows na AWS
 @app.route('/aws/Máquina Virtual Linux', methods=['POST'])
-def criar_instancia_ec2_windows_aws():
+def criar_instancia_ec2_linux_aws():
     dados = request.json
     nome_maquina_virtual_linux = dados['nome']
     
@@ -489,9 +489,9 @@ def criar_instancia_ec2_windows_aws():
 
     try:
         subprocess.run(['terraform', 'apply', '-auto-approve', '-target=aws_instance.linux'], cwd=terraform_dir, check=True)
-        return jsonify({"message": "Instância EC2 Windows criada com sucesso!"}), 200
+        return jsonify({"message": "Instância EC2 Linux criada com sucesso!"}), 200
     except subprocess.CalledProcessError as e:
-        return jsonify({"error": f"Erro ao criar Instância EC2 Windows: {e}"}), 500
+        return jsonify({"error": f"Erro ao criar Instância EC2 Linux: {e}"}), 500
 
 # Criar Load Balancer AWS
 @app.route('/aws/Load Balancer', methods=['POST'])
