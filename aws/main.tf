@@ -22,7 +22,7 @@ resource "aws_vpc" "vpc" {
  cidr_block = var.endereco_vpc
 
  tags = {
-   name = var.nome_vpc
+   Name = var.nome_vpc
  }
 }
 
@@ -32,7 +32,7 @@ resource "aws_subnet" "Subrede_Publica" {
  cidr_block = var.endereco_subrede_publica_aws
 
  tags = {
-  name = var.nome_subrede_publica_aws
+  Name = var.nome_subrede_publica_aws
  }
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "Subrede_Privada" {
  cidr_block = var.endereco_subrede_privada_vpc
 
  tags = {
-   name = var.nome_subrede_privada_vpc
+   Name = var.nome_subrede_privada_vpc
  }
 }
 
@@ -51,11 +51,11 @@ resource "aws_internet_gateway" "igw" {
  vpc_id = aws_vpc.vpc.id
 
  tags = {
-  name = var.nome_gateway
+  Name = var.nome_gateway
  }
 }
 
-# Criar Tabelade Rotas
+# Criar Tabela de Rotas
 resource "aws_route_table" "public" {
  vpc_id = aws_vpc.vpc.id
 
@@ -65,7 +65,7 @@ resource "aws_route_table" "public" {
  }
 
  tags = {
-   name = var.nome_tabela_rotas
+   Name = var.nome_tabela_rotas
  }
 }
 
@@ -81,6 +81,10 @@ resource "aws_security_group" "Grupo_de_Seguranca_LInux" {
  description = "Allow SSH inbound traffic"
  vpc_id      = aws_vpc.vpc.id
 
+  tags = {
+    Name = var.nome_grupo_seguranca_linux_aws
+  }
+
  ingress {
     from_port   = 22
     to_port     = 22
@@ -95,6 +99,9 @@ resource "aws_security_group" "Grupo_de_Seguranca_Windows" {
  description = "Allow rdp inbound traffic"
  vpc_id      = aws_vpc.vpc.id
 
+  tags = {
+    Name = var.nome_grupo_seguranca_windows_aws
+  }
  ingress {
     from_port   = 3389
     to_port     = 3389

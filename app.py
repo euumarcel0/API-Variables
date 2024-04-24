@@ -519,7 +519,7 @@ def criar_load_balancer_aws():
         print(f"Erro ao criar Load Balancer: {e}")
 
 # Endpoint para destruir recursos na AWS
-@app.route('/aws/destruir-recursos', methods=['POST'])
+@app.route('/aws/destruir', methods=['POST'])
 def destruir_recursos_aws():
     terraform_dir = './aws/'
     try:

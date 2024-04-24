@@ -177,5 +177,5 @@
 }
 # Destruir Recursos na AWS:
 # Método: POST
-# Endpoint: /aws/Destruir Recursos
+# Endpoint: /aws/destruir
 # Somente Rodar com o Endpoint
