@@ -434,9 +434,11 @@ def criar_tabela_rotas_aws():
 def criar_grupo_seguranca_linux_aws():
     dados = request.json
     nome_grupo_seguranca_linux = dados['nome']
+    descricao = dados['descrição']
     
     terraform_dir = './aws/'
     
+    atualizar_nomes_tf({"nome": "description_sg_linux", "valor": descricao}, terraform_dir)
     atualizar_nomes_tf({"nome": "nome_grupo_seguranca_linux_aws", "valor": nome_grupo_seguranca_linux}, terraform_dir)
 
     try:
@@ -450,10 +452,12 @@ def criar_grupo_seguranca_linux_aws():
 def criar_grupo_seguranca_windows_aws():
     dados = request.json
     nome_grupo_seguranca_windows = dados['nome']
+    descricao = dados['descrição']
     
     terraform_dir = './aws/'
     
     atualizar_nomes_tf({"nome": "nome_grupo_seguranca_windows_aws", "valor": nome_grupo_seguranca_windows}, terraform_dir)
+    atualizar_nomes_tf({"nome": "description_sg_windows", "valor": descricao}, terraform_dir)
 
     try:
         subprocess.run(['terraform', 'apply', '-auto-approve', '-target=aws_security_group.Grupo_de_Seguranca_Windows'], cwd=terraform_dir, check=True)
