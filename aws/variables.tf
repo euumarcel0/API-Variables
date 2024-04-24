@@ -34,9 +34,17 @@ variable "nome_grupo_seguranca_linux_aws" {
   description = "Descricao da variavel nome_grupo_seguranca_linux_aws"
   default     = "gplinux"
 }
+variable "description_sg_linux" {
+  description = "Descricao da variavel description_sg_windows"
+  default     = "Grupo de seguranca linux"
+}
 variable "nome_grupo_seguranca_windows_aws" {
   description = "Descricao da variavel nome_grupo_seguranca_windows_aws"
   default     = "gpwindows"
+}
+variable "description_sg_windows" {
+  description = "Descricao da variavel description_sg_windows"
+  default     = "Grupo de seguranca windows"
 }
 variable "nome_maquina_virtual_linux_aws" {
   description = "Descricao da variavel nome_maquina_virtual_linux_aws"

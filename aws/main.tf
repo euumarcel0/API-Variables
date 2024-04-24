@@ -78,7 +78,7 @@ resource "aws_route_table_association" "public" {
 # Criar Grupo de Segurança Linux
 resource "aws_security_group" "Grupo_de_Seguranca_LInux" {
  name        = var.nome_grupo_seguranca_linux_aws
- description = "Allow SSH inbound traffic"
+ description = var.description_sg_linux
  vpc_id      = aws_vpc.vpc.id
 
   tags = {
@@ -96,7 +96,7 @@ resource "aws_security_group" "Grupo_de_Seguranca_LInux" {
 # Criar Grupo de Segurança Windows
 resource "aws_security_group" "Grupo_de_Seguranca_Windows" {
  name        = var.nome_grupo_seguranca_windows_aws
- description = "Allow rdp inbound traffic"
+ description = var.description_sg_windows
  vpc_id      = aws_vpc.vpc.id
 
   tags = {
